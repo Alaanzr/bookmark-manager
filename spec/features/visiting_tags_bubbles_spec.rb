@@ -8,7 +8,9 @@ feature "Viewing bubbles tag" do
     # tag = Tag.create(name: 'Bubbles')
     # link.tags << tag
     # link.save
-    visit('/tags/bubbles')
-      expect(page).to have_content('Bubbles')
+    visit('/links')
+    fill_in('filter_tags', with: 'Bubbles')
+    click_button('Search for links')
+    expect(page).to have_content('Bubbles')
   end
 end
