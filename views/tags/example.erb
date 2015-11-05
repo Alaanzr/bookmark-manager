@@ -2,7 +2,9 @@
 <ul id='tags'>
   <% @links.each do |link| %>
     <li>
-       <p> Tag: <%= link.tags.map(&:name) %> </p>
+      <p> Title: <%= link.url %> </p>
+      <p> Link: <%= link.title %> </p>
+      <p> Tag: <%= link.tags.map(&:name) %> </p>
     </li>
     <% end %>
 </ul>
