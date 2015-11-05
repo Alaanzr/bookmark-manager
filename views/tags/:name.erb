@@ -1,0 +1,8 @@
+<h1> Tags </h1>
+<ul id='tags'>
+  <% @links.each do |link| %>
+    <li>
+       <p> Tag: <%= link.tags.map(&:name) %> </p>
+    </li>
+    <% end %>
+</ul>

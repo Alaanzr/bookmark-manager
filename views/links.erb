@@ -4,6 +4,11 @@
     <li>
        <p> Title: <%= link.title %> </p>
        <p> Url: <%= link.url %> </p>
+       <p> Tag: <%= link.tags.map(&:name) %> </p>
     </li>
     <% end %>
 </ul>
+
+<form action="/links/new">
+  <input type="submit" value="Go to links page">
+</form>
