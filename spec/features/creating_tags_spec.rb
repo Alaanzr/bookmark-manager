@@ -6,7 +6,7 @@ feature "Adding tags" do
     fill_in('add_tag', with: 'Kittens')
     click_button('Add Link')
     link = Link.first
-    expect(link.tags.map(&:name)).to include('Kittens')
+    expect(link.tags.map(&:name)).to include('kittens')
   end
 
   scenario "I can add multiple tags to a new link" do

@@ -22,14 +22,14 @@ class BookmarkManager < Sinatra::Base
   post '/links' do
     link = Link.create(title: params[:add_title], url: params[:add_url])
     params[:add_tag].split.each do |tag|
-      link.tags << Tag.create(name: tag)
+      link.tags << Tag.create(name: tag.downcase)
     end
     link.save
     redirect to('/links')
   end
 
   post '/tags' do
-    tag = Tag.all(name: params[:filter_tags])
+    tag = Tag.all(name: (params[:filter_tags].downcase))
     @links = tag ? tag.links : []
     erb :'tags/example'
   end
