@@ -29,7 +29,7 @@ class BookmarkManager < Sinatra::Base
   end
 
   post '/tags' do
-    tag = Tag.all(name: params[:filter_tags].capitalize)
+    tag = Tag.all(name: params[:filter_tags])
     @links = tag ? tag.links : []
     erb :'tags/example'
   end
