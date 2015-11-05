@@ -27,7 +27,7 @@ class BookmarkManager < Sinatra::Base
     redirect to('/links')
   end
 
-  get '/tags/:name' do
+  post '/tags/:name' do
     tag = Tag.all(name: params[:name].capitalize)
     @links = tag ? tag.links : []
     # p @links
