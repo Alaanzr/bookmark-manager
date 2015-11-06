@@ -8,5 +8,7 @@ feature "Confirming a password" do
     fill_in('password_confirmation', with: 'David123')
     click_button('Sign Up')
     expect(User.count).to eq 0
+    expect(page.current_path).to eq '/'
+    expect(page).to have_content('Password and confirmation password do not match')
   end
 end

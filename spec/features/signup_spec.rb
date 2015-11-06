@@ -7,8 +7,6 @@ feature "creating a new user" do
     fill_in('password_confirmation', with: 'David1234')
     click_button('Sign Up')
     expect(page).to have_content('Welcome David!')
-    p User.first
-    p User.email
     expect(User.first.email).to eq 'David@gmail.com'
     expect(User.count).to eq 1
   end

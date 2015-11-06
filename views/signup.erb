@@ -2,8 +2,10 @@
 
   <form action="/signup-details" method="post">
     Username: <input type="text" name="username">
-    Email: <input type="text" name="email">
-    Password: <input type="text" name="password">
-    Password Confirmation: <input type="text" name="password_confirmation">
+    Email: <input type="email" name="email" value="<%=@email%>">
+    Password: <input type="password" name="password">
+    Password Confirmation: <input type="password" name="password_confirmation">
     <input type="submit" value="Sign Up">
   </form>
+
+  <%= flash[:error] %>

@@ -12,9 +12,11 @@ class User
 
   validates_confirmation_of :password_hash
 
-  attr_reader :password_hash_confirmation
-
   def password=(new_password)
+    @password = new_password
     self.password_hash = Password.create(new_password)
   end
+
+  attr_reader :password_hash_confirmation
+
 end
