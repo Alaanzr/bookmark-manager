@@ -4,6 +4,9 @@
   <link rel="stylesheet" href="stylesheet.css">
 </head>
 <body>
+  <% if flash[:error] %>
+    <p><%= flash[:error] %></p>
+    <% end %>
   <%=yield%>
 </body>
 </html>

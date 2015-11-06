@@ -11,19 +11,18 @@ class BookmarkManager < Sinatra::Base
   set :views, proc {File.join(root, '..', 'views')}
 
   get '/' do
-    @email = session[:email]
+    @user = User.new
     erb :signup
   end
 
   post '/signup-details' do
     session[:username] = params[:username]
-    User.create(username: params[:username], email: params[:email], password_hash: params[:password], password_hash_confirmation: params[:password_confirmation])
-    if params[:password] == params[:password_confirmation]
+    @user = User.new(username: params[:username], email: params[:email], password_hash: params[:password], password_hash_confirmation: params[:password_confirmation])
+    if @user.save
       redirect('/welcome')
     else
-      flash[:error] = 'Password and confirmation password do not match'
-      session[:email] = params[:email]
-      redirect('/')
+      flash.now[:error] = 'Password and confirmation password do not match'
+      erb :signup
     end
   end
 

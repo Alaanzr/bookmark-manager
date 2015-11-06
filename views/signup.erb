@@ -1,11 +1,11 @@
 <h1>Sign up for an account!<h1>
 
+<body>
   <form action="/signup-details" method="post">
     Username: <input type="text" name="username">
-    Email: <input type="email" name="email" value="<%=@email%>">
+    Email: <input type="email" name="email" value="<%=@user.email%>">
     Password: <input type="password" name="password">
     Password Confirmation: <input type="password" name="password_confirmation">
     <input type="submit" value="Sign Up">
   </form>
-
-  <%= flash[:error] %>
+</body>
